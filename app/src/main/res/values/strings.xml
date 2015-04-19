@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Homework6_1</string>
 
-    <string name="showtime"></string>
+    <string name="showtime">Current date and time</string>
     <string-array name="items">
         <item>None</item>
         <item>DatePicker</item>

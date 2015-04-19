@@ -2,11 +2,11 @@ package com.example.rex.homework6_1;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.app.FragmentManager;
 import android.support.annotation.NonNull;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +31,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findviews();
     }
 
@@ -39,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
         txtView = (TextView) findViewById(R.id.txtView);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setSelection(0, true);
-
+        showInfo();
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -64,20 +63,20 @@ public class MainActivity extends ActionBarActivity {
 
     public void onDateClick(View view) {
         DatePickerFragment datePickerFragment = new DatePickerFragment();
-        FragmentManager fm = getSupportFragmentManager();
+        FragmentManager fm = getFragmentManager();
         datePickerFragment.show(fm, "datePicker");
     }
 
     public void onTimeClick(View view) {
         TimePickerFragment timePickerFragment = new TimePickerFragment();
-        android.app.FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getFragmentManager();
         timePickerFragment.show(fm, "timePicker");
     }
 
     private void showInfo() {
         Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH);
+        month = c.get(Calendar.MONTH)+1;
         day = c.get(Calendar.DATE);
         hour = c.get(Calendar.HOUR);
         min = c.get(Calendar.MINUTE);
@@ -121,7 +120,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public static class TimePickerFragment extends android.app.DialogFragment implements TimePickerDialog.OnTimeSetListener{
+    public static class TimePickerFragment extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
