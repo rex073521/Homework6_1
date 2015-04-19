@@ -77,7 +77,7 @@ public class MainActivity extends ActionBarActivity {
     private void showInfo() {
         Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
-        month = c.get(Calendar.MONTH) + 1;
+        month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DATE);
         hour = c.get(Calendar.HOUR);
         min = c.get(Calendar.MINUTE);
