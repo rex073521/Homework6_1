@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Homework6_1</string>
+
+    <string name="showtime"></string>
+    <string-array name="items">
+        <item>None</item>
+        <item>DatePicker</item>
+        <item>TimePicker</item>
+    </string-array>
+    <string name="action_settings">Settings</string>
+</resources>
